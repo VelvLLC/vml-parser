@@ -1,7 +1,7 @@
 function readvml(vml) {
     if(vml.slice(0, 8) != "%>velv<%"){
         console.error("Failed to load vml: incorrect syntax at vml:0:0 " + vml.slice(0, 8) + "\n                                                   ^^^^^^^^")
-        return 1;
+        return "<!DOCTYPE html><html><head><title>Error</title></head><body>Failed to load vml: incorrect syntax at vml:0:0 " + vml.slice(0, 8) + "</body></html>";
     }
     vml = vml.split("\n").join("").split("%").filter(chars => /\S/.test(chars))
     console.log(vml)
